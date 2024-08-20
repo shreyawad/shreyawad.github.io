@@ -450,6 +450,10 @@
 }
 /*** Single Page Hero Header End ***/
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
 /*** Service Start ***/
 .service .service-item {
