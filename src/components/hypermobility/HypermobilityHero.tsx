@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
@@ -39,7 +38,7 @@ export const HypermobilityHero = () => {
               <img 
                 src="/lovable-uploads/720c5ce8-e076-4571-94db-7f9644c4f03b.png"
                 alt="Professional demonstrating proper exercise form"
-                className="w-full h-[600px] object-cover"
+                className="w-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>

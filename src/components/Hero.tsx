@@ -38,7 +38,7 @@ export const Hero = () => {
               <img 
                 src="/lovable-uploads/eeddfc2e-daa2-4e2e-af91-d2b16f77c16e.png"
                 alt="Dr. Shreya in her clinic"
-                className="w-full h-[600px] object-cover"
+                className="w-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
