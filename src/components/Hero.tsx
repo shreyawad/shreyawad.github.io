@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
@@ -24,7 +23,7 @@ export const Hero = () => {
             </p>
             <Button asChild size="lg" className="rounded-full">
               <a href="https://calendar.app.google/N9GAaTqSHfVA61qUA">
-                Book Free Consultation
+                Book a Complimentary Consultation
               </a>
             </Button>
           </motion.div>
