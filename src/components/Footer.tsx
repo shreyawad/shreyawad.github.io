@@ -1,4 +1,3 @@
-
 import { Phone, Mail, MapPin, Instagram, Linkedin } from "lucide-react";
 
 export const Footer = () => {
@@ -51,6 +50,7 @@ export const Footer = () => {
             <div className="space-y-3">
               <a href="/" className="block hover:text-white transition-colors">Home</a>
               <a href="/hypermobility" className="block hover:text-white transition-colors">Hypermobility</a>
+              <a href="/blog" className="block hover:text-white transition-colors">Blog</a>
             </div>
           </div>
         </div>

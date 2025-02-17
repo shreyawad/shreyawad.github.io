@@ -1,10 +1,10 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, Instagram, Linkedin, MapPin } from "lucide-react";
+import { Mail, Phone, Instagram, Linkedin, MapPin, Menu } from "lucide-react";
 
 export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,16 +59,40 @@ export const Nav = () => {
               Encore Performance
             </a>
             
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2"
+              aria-label="Toggle menu"
+            >
+              <Menu className="h-6 w-6" />
+            </button>
+
             <div className="hidden md:flex items-center gap-8">
               <a href="/" className="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
               <a href="/hypermobility" className="text-gray-600 hover:text-gray-900 transition-colors">Hypermobility</a>
+              <a href="/blog" className="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
             </div>
 
-            <Button asChild className="bg-primary hover:bg-primary/90 text-white">
-              <a href="https://calendar.app.google/N9GAaTqSHfVA61qUA">
-                Book a Complimentary Consultation
-              </a>
-            </Button>
+            <div className="hidden md:block">
+              <Button asChild className="bg-primary hover:bg-primary/90 text-white">
+                <a href="https://calendar.app.google/N9GAaTqSHfVA61qUA">
+                  Book a Consultation
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          <div className={`${mobileMenuOpen ? 'max-h-screen py-4' : 'max-h-0'} md:hidden overflow-hidden transition-all duration-300 ease-in-out`}>
+            <div className="flex flex-col gap-4">
+              <a href="/" className="text-gray-600 hover:text-gray-900 transition-colors py-2">Home</a>
+              <a href="/hypermobility" className="text-gray-600 hover:text-gray-900 transition-colors py-2">Hypermobility</a>
+              <a href="/blog" className="text-gray-600 hover:text-gray-900 transition-colors py-2">Blog</a>
+              <Button asChild className="bg-primary hover:bg-primary/90 text-white w-full mt-2">
+                <a href="https://calendar.app.google/N9GAaTqSHfVA61qUA">
+                  Book a Consultation
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </nav>

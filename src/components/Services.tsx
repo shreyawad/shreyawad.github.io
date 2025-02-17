@@ -55,11 +55,11 @@ export const Services = () => {
               className="h-full"
             >
               <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
-                <div className="relative aspect-[4/3] h-[300px]">
+                <div className="relative aspect-[4/3] h-[300px] md:h-[300px]">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-center sm:object-top"
                   />
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
