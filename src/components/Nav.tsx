@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, Instagram, Linkedin, MapPin, Menu } from "lucide-react";
+import { Mail, Phone, Instagram, Linkedin, MapPin, Menu, X } from "lucide-react";
 import { trackEvent } from "@/utils/analytics";
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,48 +72,64 @@ export const Nav = () => {
         </div>
       </div>
       
-      <nav className={`${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-white'} transition-all duration-300`}>
+      <nav className={`w-full transition-all ${
+        scrolled ? 'bg-white shadow-md' : 'bg-transparent'
+      }`}>
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center py-4">
-            <a href="/" className="text-xl font-semibold text-gray-900">
+          <div className="flex items-center justify-between h-20">
+            <Link to="/" className="text-xl font-bold text-gray-900">
               Encore Performance
-            </a>
-            
-            <button 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2"
-              aria-label="Toggle menu"
-            >
-              <Menu className="h-6 w-6" />
-            </button>
+            </Link>
 
-            <div className="hidden md:flex items-center gap-8">
-              <a href="/" className="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
-              <a href="/hypermobility" className="text-gray-600 hover:text-gray-900 transition-colors">Hypermobility</a>
-              <a href="/blog" className="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              <Link to="/" className="text-gray-600 hover:text-gray-900">
+                Home
+              </Link>
+              <Link to="/hypermobility" className="text-gray-600 hover:text-gray-900">
+                Hypermobility
+              </Link>
+              <Link to="/blog" className="text-gray-600 hover:text-gray-900">
+                Blog
+              </Link>
+              <div className="hidden md:block">
+                <Button asChild className="bg-primary hover:bg-primary/90 text-white">
+                  <a href="https://calendar.app.google/N9GAaTqSHfVA61qUA">
+                    Book a Consultation
+                  </a>
+                </Button>
+              </div>
             </div>
 
-            <div className="hidden md:block">
-              <Button asChild className="bg-primary hover:bg-primary/90 text-white">
-                <a href="https://calendar.app.google/N9GAaTqSHfVA61qUA">
-                  Book a Consultation
-                </a>
-              </Button>
-            </div>
-          </div>
-
-          <div className={`${mobileMenuOpen ? 'max-h-screen py-4' : 'max-h-0'} md:hidden overflow-hidden transition-all duration-300 ease-in-out`}>
-            <div className="flex flex-col gap-4">
-              <a href="/" className="text-gray-600 hover:text-gray-900 transition-colors py-2">Home</a>
-              <a href="/hypermobility" className="text-gray-600 hover:text-gray-900 transition-colors py-2">Hypermobility</a>
-              <a href="/blog" className="text-gray-600 hover:text-gray-900 transition-colors py-2">Blog</a>
-              <Button asChild className="bg-primary hover:bg-primary/90 text-white w-full mt-2">
-                <a href="https://calendar.app.google/N9GAaTqSHfVA61qUA">
-                  Book a Consultation
-                </a>
-              </Button>
+            {/* Mobile Navigation */}
+            <div className="md:hidden">
+              <button onClick={() => setIsOpen(!isOpen)}>
+                {isOpen ? <X /> : <Menu />}
+              </button>
             </div>
           </div>
+
+          {/* Mobile Menu */}
+          {isOpen && (
+            <div className="md:hidden">
+              <div className="px-2 pt-2 pb-3 space-y-1">
+                <Link to="/" className="block px-3 py-2 text-gray-600">
+                  Home
+                </Link>
+                <Link to="/hypermobility" className="block px-3 py-2 text-gray-600">
+                  Hypermobility
+                </Link>
+                <Link to="/blog" className="block px-3 py-2 text-gray-600">
+                  Blog
+                </Link>
+                <Button asChild className="bg-primary hover:bg-primary/90 text-white w-full mt-2">
+                  <a href="https://calendar.app.google/N9GAaTqSHfVA61qUA">
+                    Book a Consultation
+                  </a>
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
     </div>
