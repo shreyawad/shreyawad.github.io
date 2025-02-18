@@ -3,6 +3,7 @@ export const SchemaMarkup = () => {
     "@context": "https://schema.org",
     "@type": "PhysicalTherapist",
     "name": "Encore Performance Physical Therapy",
+    "alternateName": "Dr. Shreya PT San Carlos",
     "founder": {
       "@type": "Person",
       "name": "Dr. Shreya Wadhawan",
@@ -27,12 +28,37 @@ export const SchemaMarkup = () => {
       "longitude": -122.2448317
     },
     "areaServed": [
-      "San Carlos",
+      {
+        "@type": "City",
+        "name": "San Carlos",
+        "containedIn": "San Mateo County"
+      },
+      {
+        "@type": "City",
+        "name": "Redwood City"
+      },
+      {
+        "@type": "City",
+        "name": "Belmont"
+      },
+      {
+        "@type": "City",
+        "name": "San Mateo"
+      }
+    ],
+    "localBusinessDistrict": "San Carlos Industrial Area",
+    "neighboringLocations": [
       "Redwood City",
       "Belmont",
       "San Mateo",
-      "Palo Alto",
-      "Bay Area"
+      "Foster City"
+    ],
+    "keywords": [
+      "physical therapy San Carlos",
+      "hypermobility specialist Bay Area",
+      "EDS physical therapy San Carlos",
+      "chronic pain management Peninsula",
+      "sports rehabilitation San Carlos"
     ],
     "priceRange": "$$",
     "openingHours": "Mo-Fr 09:00-17:00",

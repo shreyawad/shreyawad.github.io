@@ -55,6 +55,12 @@ export const Footer = () => {
           </div>
         </div>
 
+        <div className="text-sm text-gray-500 mt-4">
+          <p>Located in San Carlos, CA, serving the San Francisco Peninsula including Redwood City, Belmont, and San Mateo.</p>
+          <p>Member of the San Carlos Chamber of Commerce</p>
+          <p>Near landmarks: San Carlos Industrial Area, Burton Park, Laureola Park</p>
+        </div>
+
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} Encore Performance Physical Therapy Corp. All rights reserved.</p>
         </div>
