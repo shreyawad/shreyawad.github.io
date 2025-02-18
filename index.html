@@ -164,7 +164,15 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
+      
+      // Initialize pixel first
       fbq('init', '623756587071432');
+      
+      // Wait for pixel to be ready
+      fbq('set', 'autoConfig', true, '623756587071432');
+      
+      // Then grant consent and track pageview
+      fbq('consent', 'grant');
       fbq('track', 'PageView');
     </script>
   </head>
