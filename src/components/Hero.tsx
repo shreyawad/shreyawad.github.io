@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { trackEvent } from '@/utils/analytics';
+import { trackMetaEvent } from '@/utils/metaPixel';
 
 export const Hero = () => {
   return (
@@ -22,7 +24,17 @@ export const Hero = () => {
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               I'm Dr. Shreya, a Doctor of Physical Therapy, and my goal is to bridge the gap of rehab, health, and fitness.
             </p>
-            <Button asChild size="lg" className="rounded-full">
+            <Button 
+              asChild 
+              size="lg" 
+              className="rounded-full"
+              onClick={() => {
+                trackMetaEvent('Schedule', { 
+                  source: 'hero_section',
+                  content_name: 'Consultation Booking'
+                });
+              }}
+            >
               <a href="https://calendar.app.google/N9GAaTqSHfVA61qUA">
                 Book a Complimentary Consultation
               </a>

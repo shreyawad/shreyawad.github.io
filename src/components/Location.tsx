@@ -1,4 +1,6 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { trackEvent } from '@/utils/analytics';
+import { trackMetaEvent } from '@/utils/metaPixel';
 
 export const Location = () => {
   return (
@@ -23,6 +25,7 @@ export const Location = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary hover:underline mt-2 inline-block"
+                    onClick={() => trackEvent('get_directions')}
                   >
                     Get Directions
                   </a>
@@ -42,7 +45,14 @@ export const Location = () => {
                 <Phone className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold mb-2">Phone</h3>
-                  <a href="tel:4082035593" className="text-gray-600 hover:text-primary">
+                  <a 
+                    href="tel:4082035593" 
+                    className="text-gray-600 hover:text-primary"
+                    onClick={() => trackMetaEvent('Contact', { 
+                      type: 'phone',
+                      content_name: 'Phone Call'
+                    })}
+                  >
                     (408) 203-5593
                   </a>
                 </div>
@@ -52,7 +62,14 @@ export const Location = () => {
                 <Mail className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold mb-2">Email</h3>
-                  <a href="mailto:encoreperf@gmail.com" className="text-gray-600 hover:text-primary">
+                  <a 
+                    href="mailto:encoreperf@gmail.com" 
+                    className="text-gray-600 hover:text-primary"
+                    onClick={() => trackMetaEvent('Contact', { 
+                      type: 'email',
+                      content_name: 'Email Contact'
+                    })}
+                  >
                     encoreperf@gmail.com
                   </a>
                 </div>
@@ -72,6 +89,42 @@ export const Location = () => {
               title="Encore Performance Physical Therapy Location"
             />
           </div>
+        </div>
+      </div>
+      
+      <div className="mt-12 max-w-3xl mx-auto">
+        <h3 className="text-2xl font-bold mb-6">Serving the San Francisco Peninsula</h3>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h4 className="font-semibold mb-3">Nearby Cities We Serve:</h4>
+            <ul className="space-y-2 text-gray-600">
+              <li>• Redwood City (5 minutes)</li>
+              <li>• Belmont (7 minutes)</li>
+              <li>• San Mateo (12 minutes)</li>
+              <li>• Foster City (15 minutes)</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-3">Local Landmarks:</h4>
+            <ul className="space-y-2 text-gray-600">
+              <li>• Burton Park</li>
+              <li>• San Carlos Industrial Area</li>
+              <li>• Laureola Park</li>
+              <li>• San Carlos Caltrain Station</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="mt-8 prose prose-lg">
+          <h4 className="font-semibold">Getting Here:</h4>
+          <p>
+            We're conveniently located in the San Carlos Industrial Area, easily accessible from 
+            Highway 101. Our clinic is just minutes from the San Carlos Caltrain station, making 
+            it convenient for patients throughout the Peninsula.
+          </p>
+          <p>
+            Free parking is available in our dedicated lot, and we're wheelchair accessible.
+          </p>
         </div>
       </div>
     </section>

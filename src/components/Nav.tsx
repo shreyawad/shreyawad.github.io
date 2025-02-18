@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, Instagram, Linkedin, MapPin, Menu } from "lucide-react";
+import { trackEvent } from "@/utils/analytics";
 
 export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -40,12 +41,28 @@ export const Nav = () => {
             </a>
           </div>
           <div className="flex gap-4">
-            <a href="https://instagram.com/drshreya.dpt" target="_blank" rel="noopener noreferrer" 
-               className="text-gray-300 hover:text-white flex items-center">
+            <a 
+              href="https://instagram.com/drshreya.dpt" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white flex items-center"
+              onClick={() => trackEvent('social_click', { 
+                platform: 'instagram',
+                location: 'nav'
+              })}
+            >
               <Instagram size={16} />
             </a>
-            <a href="https://linkedin.com/in/shreyawad" target="_blank" rel="noopener noreferrer"
-               className="text-gray-300 hover:text-white flex items-center">
+            <a 
+              href="https://linkedin.com/in/shreyawad" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white flex items-center"
+              onClick={() => trackEvent('social_click', { 
+                platform: 'linkedin',
+                location: 'nav'
+              })}
+            >
               <Linkedin size={16} />
             </a>
           </div>

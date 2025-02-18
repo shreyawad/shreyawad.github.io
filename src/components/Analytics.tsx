@@ -13,7 +13,7 @@ declare global {
   }
 }
 
-export const GoogleAnalytics = () => {
+export const Analytics = () => {
   const location = useLocation();
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export const GoogleAnalytics = () => {
       // Track time spent when user leaves page
       const trackTimeSpent = () => {
         const endTime = new Date().getTime();
-        const timeSpent = Math.round((endTime - startTime) / 1000); // Convert to seconds
+        const timeSpent = Math.round((endTime - startTime) / 1000);
 
         trackEvent('time_spent', {
           page: location.pathname,

@@ -2,8 +2,23 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from '@/utils/analytics';
+import { useEffect } from 'react';
+import { trackMetaEvent } from '@/utils/metaPixel';
 
 const FeelingTheWobble = () => {
+  useEffect(() => {
+    trackEvent('read_blog', {
+      title: 'Feeling the Wobble',
+      category: 'hypermobility'
+    });
+    trackMetaEvent('ViewContent', {
+      content_name: 'Feeling the Wobble',
+      content_type: 'blog_post',
+      content_category: 'hypermobility'
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Nav />
