@@ -75,7 +75,7 @@ const HydrationAndRecovery = () => {
               <div className="flex items-center text-gray-500 text-sm mt-5">
                 <span>By Dr. Shreya Wadhawan, DPT</span>
                 <span className="mx-2">•</span>
-                <time dateTime="2025-04-10">April, 2025</time>
+                <time dateTime="2025-03-10">March, 2025</time>
                 <span className="mx-2">•</span>
                 <span>5 min read</span>
               </div>
