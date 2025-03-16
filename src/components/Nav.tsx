@@ -92,6 +92,9 @@ export const Nav = () => {
               <Link to="/blog" className="text-gray-600 hover:text-gray-900">
                 Blog
               </Link>
+              <Link to="/how-i-work" className="text-gray-600 hover:text-gray-900">
+                My Approach
+              </Link>
               <div className="hidden md:block">
                 <Button asChild className="bg-primary hover:bg-primary/90 text-white">
                   <a href="https://calendar.app.google/N9GAaTqSHfVA61qUA">
@@ -121,6 +124,9 @@ export const Nav = () => {
                 </Link>
                 <Link to="/blog" className="block px-3 py-2 text-gray-600">
                   Blog
+                </Link>
+                <Link to="/how-i-work" className="block px-3 py-2 text-gray-600">
+                  My Approach
                 </Link>
                 <Button asChild className="bg-primary hover:bg-primary/90 text-white w-full mt-2">
                   <a href="https://calendar.app.google/N9GAaTqSHfVA61qUA">
